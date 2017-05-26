@@ -12,41 +12,33 @@ import java.util.Scanner;
  * @author Estudiante
  */
 public class Estacion {
-    private int numeroDatos;
-    private String nombre;
+    private int nombre;
     private String ubicacion;
-    private Sensor sn[]= new Sensor[3];
+    private String fecha_instalacion;
+    private Sensor sensor[]= new Sensor[3];
     private String datos;
+    
     
 
     public Estacion() {
     }
     
 
-    public Estacion(String nombre, String ubicacion) {
+    public Estacion(int nombre, String ubicacion, String fecha_instalacion ) {
         this.nombre = nombre;
         this.ubicacion = ubicacion;
+        this.fecha_instalacion=fecha_instalacion;
     }
-
     
-    public void interpretarDatos(){
-         Scanner sc= new Scanner(datos); 
-         int dia,mes,anio;
-         
-         sc.useDelimiter("/");
-         dia=sc.nextInt();
-         mes=sc.nextInt();
-         anio=sc.nextInt();
-        // fecha= new Time(dia,mes,anio);
-         
-         
+    public void addSensor(int j,Sensor sensores){
+        sensor[j]=sensores;
         
     }
-    public String getNombre() {
+    public int getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(int nombre) {
         this.nombre = nombre;
     }
 
@@ -58,21 +50,32 @@ public class Estacion {
         this.ubicacion = ubicacion;
     }
 
-    public Sensor[] getSn() {
-        return sn;
+    public String getFecha_instalacion() {
+        return fecha_instalacion;
     }
 
-    public void setSn(Sensor[] sn) {
-        this.sn = sn;
+    public void setFecha_instalacion(String fecha_instalacion) {
+        this.fecha_instalacion = fecha_instalacion;
     }
 
-    public int getNumeroDatos() {
-        return numeroDatos;
+    public Sensor[] getSensor() {
+        return sensor;
     }
 
-    public void setNumeroDatos(int numeroDatos) {
-        this.numeroDatos = numeroDatos;
+    public void setSensor(Sensor[] sensor) {
+        this.sensor = sensor;
     }
+
+    @Override
+    public String toString() {
+        String mensaje="Estacion{" + "nombre=" + nombre + ", ubicacion=" + ubicacion + ", fecha_instalacion=" + fecha_instalacion;
+        for (int i = 0; i < 3; i++) {
+            mensaje= mensaje+sensor[i].toString()+"\n";
+        }
+        
+        return mensaje+'}';
+    }
+    
     
     
 }

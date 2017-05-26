@@ -21,35 +21,17 @@ public class Parcial {
     public static void main(String[] args) throws FileNotFoundException {
         
         File info= new File("Formato.txt");
+        File registro= new File("Registro.txt");
+  
+        Scanner sc_registro=new Scanner(registro);
+        Registro r_estaciones= new Registro(sc_registro);
         
-        System.out.println(info.exists());
-        Scanner sc=new Scanner(info);
-        Datos d= new Datos();
-        d.llernarDatos(sc);
+        
+        Scanner sc= new Scanner(info);
+        Datos d= new Datos(sc);
         
         
-        Ciudad city[]= new Ciudad[12];
-        for (int i = 0; i < 12; i++) {
-            city[i]=new Ciudad ();
-            
-        }
-        /*for (int i = 0; i < 12; i++) {
-        if(city[i].getCiudad()==sc.next()){
-        
-        }
-        }
-        
-        System.out.println(city.toString());*/
-        //sc.useDelimiter();
-        /* String n;
-        for (int i = 0; i < 4; i++) {
-        n= sc.next();
-        System.out.print(n+"  ");
-        //sc.nextLine();
-        }*/
        
-        
-        
         
     }
     

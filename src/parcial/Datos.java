@@ -19,56 +19,65 @@ public class Datos {
     Número de datos sensores
     Fecha  Temperatura  Cantidad Agua  Nivel Eléctrico*/
     
-     private String ciudad,datos;
+     private String nombre_ciudad;
     private int numero;
     private String nombre;
     private int numerodatos;
-     int dia,mes,anio;
     private String fecha;
     private int temperatura;
     private int mmAguaMin;
     private int carga;
     private Scanner sc;
-    private Estacion estacion[];
-    public void llernarDatos(Scanner sc){
-    this.sc=sc;
-        ciudad=sc.next();
+    
+     
+    public Datos(Scanner sc){
+        this.sc=sc;
+        this.llenarDatos();
+        
+        
+    }
+    
+    public void llenarDatos(){
+        nombre_ciudad=sc.next();
+       
+        
+        
         
         numero=sc.nextInt();
         
-        
-        estacion= new Estacion[numero];
-        for (int i = 0; i < numero; i++) {
             
-           estacion[i]=new Estacion();
-           nombre=sc.next();
-           estacion[i].setNombre(nombre);
+        for (int i = 0; i < numero; i++) {
+ 
+           nombre=sc.next(); 
            numerodatos=sc.nextInt();
            
             for (int j = 0; j < numerodatos; j++) {
-                fecha=sc.next();
-                /* sc.useDelimiter("/");
-                dia=sc.nextInt();
-                mes=sc.nextInt();
-                anio=sc.nextInt();
-                fecha= new Time(dia,mes,anio);
                 
-           sc.useDelimiter(" ");
-           temperatura=sc.nextInt();
-           mmAguaMin= sc.nextInt();
-           carga=sc.nextInt();
-           //sc.useDelimiter(" ");
-*/
-           
+                fecha=sc.next();
+                temperatura=sc.nextInt();
+                mmAguaMin= sc.nextInt();
+                carga=sc.nextInt();
+                
+                System.out.println(this.toString());
            }  
-           System.out.println(this.toString());
+           
         }
        
     }
+    
+    public void Asignar(Registro reg){
+        for (int i = 0; i < 12; i++) {
+            
+        }
+    }
 
+    public void promedio(){
+        
+    }
     @Override
     public String toString() {
-        return "Datos{" + "ciudad=" + ciudad + ", datos=" + datos + ", numero=" + numero + ", nombre=" + nombre + ", numerodatos=" + numerodatos + ", dia=" + dia + ", mes=" + mes + ", anio=" + anio + ", fecha=" + fecha + ", temperatura=" + temperatura + ", mmAguaMin=" + mmAguaMin + ", carga=" + carga + ", sc=" + sc + ", estacion=" + estacion + '}';
+        return "Datos{" + "ciudad=" + nombre_ciudad  + ", numero=" + numero + ", nombre=" + nombre + ", numerodatos=" + numerodatos
+                +", fecha="+ fecha + ", temperatura=" + temperatura  + ", mmAguaMin=" + mmAguaMin + ", carga=" + carga + '}';
     }
 
    

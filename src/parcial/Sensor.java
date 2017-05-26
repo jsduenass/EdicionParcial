@@ -13,13 +13,14 @@ import java.sql.Time;
  */
 public class Sensor {
     private String marca;
-    private int referencia;
-    private Time fecha;
+    private String referencia;
+    private String fecha_instalacion;
+    private int medida;
 
-    public Sensor(String marca, int referencia, Time fecha) {
+    public Sensor(String marca, String referencia, String fecha) {
         this.marca = marca;
         this.referencia = referencia;
-        this.fecha = fecha;
+        this.fecha_instalacion = fecha;   
     }
 
     public String getMarca() {
@@ -30,22 +31,20 @@ public class Sensor {
         this.marca = marca;
     }
 
-    public int getReferencia() {
+    public String getReferencia() {
         return referencia;
     }
 
-    public void setReferencia(int referencia) {
+    public void setReferencia(String referencia) {
         this.referencia = referencia;
     }
 
-    public Time getFecha() {
-        return fecha;
+    @Override
+    public String toString() {
+        return " Sensor{" + "marca=" + marca + ", referencia=" + referencia + ", fecha_instalacion=" + fecha_instalacion + ", medida=" + medida + '}';
     }
 
-    public void setFecha(Time fecha) {
-        this.fecha = fecha;
-    }
-    
-    
+   
+
     
 }
